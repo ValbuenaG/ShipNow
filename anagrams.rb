@@ -1,16 +1,29 @@
-a = ['horse', 'shore', 'heros', 'standard']
+a = ['horse', 'dhore', 'heros', 'standard']
 
 
 def isAnagram(word, posibleAnagrams)
 	wordToArr = word.split('').sort
 	trueAnagrams = []
+	
 	posibleAnagrams.length.times do |i|
+		acum = 0
+		
 		aux = posibleAnagrams[i]
 		aux = aux.split('').sort
-		if(wordToArr[i] == aux[i] &&aux.length == wordToArr.length )
-			trueAnagrams.push(posibleAnagrams[i])
+		if(aux.length == wordToArr.length )
+			aux.length.times do |i|
+				if(aux[i]==wordToArr[i])
+					
+					acum+=1
+				end
+			end
 		
 		end
+		if(acum==wordToArr.length && acum > 0)
+			
+			trueAnagrams.push(posibleAnagrams[i])
+		end
+		
 	end
 	trueAnagrams
 end
